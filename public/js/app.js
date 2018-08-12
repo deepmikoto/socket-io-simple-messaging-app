@@ -2,7 +2,7 @@ $(function () {
     var socket;
     
     function initWSConnection() {
-        socket = io(window.location.origin + ':14630');
+        socket = io(window.location.origin + ':16430');
         socket
             .on('chat message', function (data) {
                 var $template = $($('#instant-message').html());
