@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nodejs:
+    image: node:latest
+    container_name: "nodejs"
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "3000:3000"
+    working_dir: /var/www/app
+    tty: true
+  webserver:
+    image: nginx:latest
+    container_name: web
+    volumes:
+      - .:/var/www/app
+      - ./build/docker/site.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    working_dir: /var/www/app
